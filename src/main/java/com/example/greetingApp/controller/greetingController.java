@@ -1,9 +1,10 @@
 package com.example.greetingApp.controller;
 
+import com.example.greetingApp.model.Greeting;
 import com.example.greetingApp.service.GreetingService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -16,14 +17,15 @@ public class greetingController {
         this.greetingService = greetingService;
     }
 
-    // GET - Handle different user attributes for greeting
-    @GetMapping
-    public Map<String, String> getGreeting(
-            @RequestParam(required = false) String firstName,
-            @RequestParam(required = false) String lastName) {
+    // Save a greeting message
+    @PostMapping
+    public Greeting saveGreeting(@RequestBody Map<String, String> request) {
+        return greetingService.saveGreeting(request.get("message"));
+    }
 
-        Map<String, String> response = new HashMap<>();
-        response.put("message", greetingService.getGreetingMessage(firstName, lastName));
-        return response;
+    // Get all greeting messages
+    @GetMapping("/all")
+    public List<Greeting> getAllGreetings() {
+        return greetingService.getAllGreetings();
     }
 }
