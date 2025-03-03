@@ -21,7 +21,7 @@ public class GreetingService {
         return greetingRepository.save(new Greeting(message));
     }
 
-    // Retrieve all greetings (UC4)
+    // ✅ UC4 & UC6 - Retrieve all greetings from the repository
     public List<Greeting> getAllGreetings() {
         return greetingRepository.findAll();
     }
