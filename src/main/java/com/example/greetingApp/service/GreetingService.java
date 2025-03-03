@@ -16,7 +16,7 @@ public class GreetingService {
         this.greetingRepository = greetingRepository;
     }
 
-    // Save a new greeting (UC4)
+    // ✅ UC4 - Save a new greeting message
     public Greeting saveGreeting(String message) {
         return greetingRepository.save(new Greeting(message));
     }
@@ -26,7 +26,7 @@ public class GreetingService {
         return greetingRepository.findAll();
     }
 
-    // Retrieve a greeting message by ID (UC5)
+    // ✅ UC5 - Retrieve a greeting message by ID
     public Optional<Greeting> getGreetingById(Long id) {
         return greetingRepository.findById(id);
     }
@@ -40,5 +40,14 @@ public class GreetingService {
             return greetingRepository.save(greeting);
         }
         return null; // Return null if the greeting with the given ID does not exist
+    }
+
+    // ✅ UC8 - Delete a greeting message
+    public String deleteGreeting(Long id) {
+        if (greetingRepository.existsById(id)) {
+            greetingRepository.deleteById(id);
+            return "Greeting deleted successfully!";
+        }
+        return "Greeting with ID " + id + " not found!";
     }
 }
