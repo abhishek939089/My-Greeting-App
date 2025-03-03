@@ -12,16 +12,18 @@ public class greetingController {
 
     private final GreetingService greetingService;
 
-    // Constructor-based Dependency Injection
     public greetingController(GreetingService greetingService) {
         this.greetingService = greetingService;
     }
 
-    // GET - Retrieve greeting message from Service Layer
+    // GET - Handle different user attributes for greeting
     @GetMapping
-    public Map<String, String> getGreeting() {
+    public Map<String, String> getGreeting(
+            @RequestParam(required = false) String firstName,
+            @RequestParam(required = false) String lastName) {
+
         Map<String, String> response = new HashMap<>();
-        response.put("message", greetingService.getGreetingMessage());
+        response.put("message", greetingService.getGreetingMessage(firstName, lastName));
         return response;
     }
 }
