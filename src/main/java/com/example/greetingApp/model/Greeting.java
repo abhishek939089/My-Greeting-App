@@ -11,7 +11,14 @@ public class Greeting {
 
     private String message;
 
-    public Greeting() {}
+    // ✅ Default constructor (Required by JPA)
+    public Greeting() {
+    }
+
+    public Greeting(String message, Long id) {
+        this.message = message;
+        this.id = id;
+    }
 
     public Greeting(String message) {
         this.message = message;
@@ -19,6 +26,10 @@ public class Greeting {
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getMessage() {
@@ -29,4 +40,3 @@ public class Greeting {
         this.message = message;
     }
 }
-    
