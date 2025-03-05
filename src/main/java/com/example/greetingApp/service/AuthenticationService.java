@@ -18,6 +18,9 @@ public class AuthenticationService {
     @Autowired(required=true)
     private JwtUtil jwtUtil;
 
+    @Autowired
+    private EmailService emailService;
+
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     // Register User
@@ -32,8 +35,8 @@ public class AuthenticationService {
 //        user.setEmail(authUser.getEmail());
 //        user.setPassword(passwordEncoder.encode(authUser.getPassword())); // Encrypt password
         authUserRepository.save(authUser);
-
-        return "User registered successfully!";
+        emailService.sendSimpleEmail(authUser.getEmail(), "Registration Status", "You are registered successfully! Regards,BridgeLabz");
+        return "User registered successfully! A confirmation email has been sent from BridgeLabz.";
     }
 
     // Authenticate User and Generate Token
