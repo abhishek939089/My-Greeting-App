@@ -18,6 +18,7 @@ A Spring Boot application for managing greeting messages with CRUD operations an
 - `UC8-deletegreetingmessages` - Delete greeting messages.
 - `UC9-UserRegistrationAndLogin` - User authentication (Registration & Login).
 - `UC10-Swagger` - API documentation using Swagger.
+- `UC11-sendingemails` - Sending emails to the user that you have registered successfully!
 
 ## Features
 
