@@ -19,6 +19,7 @@ A Spring Boot application for managing greeting messages with CRUD operations an
 - `UC9-UserRegistrationAndLogin` - User authentication (Registration & Login).
 - `UC10-Swagger` - API documentation using Swagger.
 - `UC11-sendingemails` - Sending emails to the user that you have registered successfully!
+- `Uc12-resetandforgotpassword` - implemented reset and forgot password feature in greeting app.
 
 ## Features
 
