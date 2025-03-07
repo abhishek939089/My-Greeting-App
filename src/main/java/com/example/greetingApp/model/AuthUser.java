@@ -2,7 +2,6 @@ package com.example.greetingApp.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
 @Data
@@ -63,7 +62,7 @@ public class AuthUser {
     }
 
     public void setPassword(String password) {
-        this.password = new BCryptPasswordEncoder().encode(password);
+        this.password = password;
     }
 }
 
